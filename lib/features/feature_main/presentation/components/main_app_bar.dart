@@ -1,4 +1,5 @@
 import 'package:budgetly/features/feature_main/presentation/controller/main_controller.dart';
+import 'package:budgetly/theme/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -8,7 +9,7 @@ PreferredSizeWidget mainAppBar(
     AppBar(
       title: SizedBox(
         width: double.infinity,
-        height: 100,
+        height: 80,
         child: Row(
           children: [
             const CircleAvatar(
@@ -17,21 +18,48 @@ PreferredSizeWidget mainAppBar(
             ),
 
             const SizedBox(width: 16,),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Hi, Sheilla",
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-                const SizedBox(height: 8,),
 
-                Text(
-                  "My Wallet",
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-              ],
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Hi, Sheilla",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "My Budget",
+                        style: Theme.of(context).textTheme.bodyLarge,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+
+                      //  display the current monthly budget
+                      InkWell(
+                        borderRadius: BorderRadius.circular(16),
+                        onTap: (){
+                          print("month was pressed");
+                        },
+                        child: Ink(
+                          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(18),
+                            color: MyColors.lightColors['accent_5'],
+                          ),
+                          child: Text(
+                            "June",
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        )
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),
