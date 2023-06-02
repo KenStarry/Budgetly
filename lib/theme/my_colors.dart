@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 
 class MyColors {
   /// Light theme colors
-  static const Map<String, Color> lightColors = {
-    'accent_1': Color(0xffffb5a7),
-    'accent_2': Color(0xfffcd5ce),
-    'accent_3': Color(0xfff8edeb),
-    'accent_4': Color(0xfff9dcc4),
-    'accent_5': Color(0xfffec89a),
-    'scaffold_bg': Color(0xfff8edeb),
+  static Map<String, Color> lightColors = {
+    'accent_1': Color(0xff03045e),
+    'accent_2': Color(0xff0077b6),
+    'accent_3': Color(0xff00b4d8),
+    'accent_4': Color(0xff90e0ef),
+    'accent_5': Color(0xffcaf0f8),
+    'scaffold_bg': Color(0xffffffff),
+    'icon_color': Colors.black54,
     'text_black': Colors.black,
     'text_black_87': Colors.black87,
     'text_black_54': Colors.black54,
@@ -18,7 +19,13 @@ class MyColors {
 
   /// Dark theme colors
   static const Map<String, Color> darkColors = {
+    'accent_1': Color(0xff03045e),
+    'accent_2': Color(0xff0077b6),
+    'accent_3': Color(0xff00b4d8),
+    'accent_4': Color(0xff90e0ef),
+    'accent_5': Color(0xffcaf0f8),
     'scaffold_bg': Colors.black45,
+    'icon_color': Colors.white54,
     'text_white': Colors.white,
     'text_white_70': Colors.white70,
     'text_white_60': Colors.white60,
