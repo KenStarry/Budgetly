@@ -16,19 +16,19 @@ class MyTheme {
         color: MyColors.lightColors['text_black']
       ),
       titleMedium: TextStyle(
-          fontSize: 26,
+          fontSize: 24,
           fontWeight: FontWeight.bold,
           fontFamily: 'Poppins',
           color: MyColors.lightColors['text_black_87']
       ),
       titleSmall: TextStyle(
-          fontSize: 24,
+          fontSize: 20,
           fontWeight: FontWeight.w700,
           fontFamily: 'Poppins',
           color: MyColors.lightColors['text_black_87'],
       ),
       bodyLarge: TextStyle(
-          fontSize: 20,
+          fontSize: 18,
           fontWeight: FontWeight.w500,
           fontFamily: 'Poppins',
           color: MyColors.lightColors['text_black_54']
@@ -54,25 +54,25 @@ class MyTheme {
       fontFamily: 'Poppins',
       textTheme: TextTheme(
         titleLarge: TextStyle(
-            fontSize: 28,
+            fontSize: 26,
             fontWeight: FontWeight.bold,
             fontFamily: 'Poppins',
             color: MyColors.darkColors['text_white']
         ),
         titleMedium: TextStyle(
-            fontSize: 26,
+            fontSize: 24,
             fontWeight: FontWeight.bold,
             fontFamily: 'Poppins',
             color: MyColors.darkColors['text_white_70']
         ),
         titleSmall: TextStyle(
-          fontSize: 24,
+          fontSize: 20,
           fontWeight: FontWeight.w700,
           fontFamily: 'Poppins',
           color: MyColors.darkColors['text_white_70'],
         ),
         bodyLarge: TextStyle(
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: FontWeight.w500,
             fontFamily: 'Poppins',
             color: MyColors.darkColors['text_white_60']

@@ -1,3 +1,4 @@
+import 'package:budgetly/features/feature_main/presentation/components/main_app_bar.dart';
 import 'package:budgetly/features/feature_main/presentation/controller/main_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,17 +29,7 @@ class _MainScreenState extends State<MainScreen> {
             systemNavigationBarIconBrightness:
                 _controller.isDarkMode() ? Brightness.light : Brightness.dark),
         child: Scaffold(
-          appBar: AppBar(
-            title: Text(
-              "Home",
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-            systemOverlayStyle: SystemUiOverlayStyle(
-                statusBarColor: Theme.of(context).scaffoldBackgroundColor,
-                statusBarIconBrightness: _controller.isDarkMode()
-                    ? Brightness.light
-                    : Brightness.dark),
-          ),
+          appBar: mainAppBar(context: context, controller: _controller),
         ));
   }
 }
