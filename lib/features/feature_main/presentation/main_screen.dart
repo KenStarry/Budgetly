@@ -7,6 +7,7 @@ import 'package:budgetly/features/feature_main/presentation/components/bottom_sh
 import 'package:budgetly/features/feature_main/presentation/components/main_app_bar.dart';
 import 'package:budgetly/features/feature_main/presentation/components/main_bottom_appbar.dart';
 import 'package:budgetly/features/feature_main/presentation/controller/main_controller.dart';
+import 'package:budgetly/features/feature_main/presentation/controller/main_form_controller.dart';
 import 'package:budgetly/features/feature_settings/presentation/settings_screen.dart';
 import 'package:budgetly/theme/my_colors.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,8 @@ class _MainScreenState extends State<MainScreen> {
   late final MainController _controller;
   late final List<Widget> _tabs;
   late final List<Widget> _pages;
+
+  var myController = TextEditingController();
 
   @override
   void initState() {
@@ -93,6 +96,9 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    Get.put(MainFormController());
+
     return AnnotatedRegion(
         value: SystemUiOverlayStyle(
             systemNavigationBarColor: Theme.of(context).scaffoldBackgroundColor,
@@ -114,7 +120,7 @@ class _MainScreenState extends State<MainScreen> {
                   if (_controller.currentTabIndex.value == 0) {
                     showHomeBottomSheet(context);
                   } else if (_controller.currentTabIndex.value == 1) {
-                    showAccountsBottomSheet(context);
+                    showAccountsBottomSheet(context, myController);
                   } else if (_controller.currentTabIndex.value == 2) {
                     showCategoriesBottomSheet(context);
                   } else {

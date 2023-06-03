@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../../../../theme/my_colors.dart';
-
 class AccountCard extends StatelessWidget {
-  const AccountCard({Key? key}) : super(key: key);
+
+  final String accountName;
+
+  const AccountCard({Key? key, required this.accountName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
         width: double.infinity,
         height: 200,
@@ -90,7 +93,7 @@ class AccountCard extends StatelessWidget {
                       children: [
                         const Icon(Icons.wallet, size: 16,),
                         const SizedBox(width: 8,),
-                        Text("Account Name", style: Theme.of(context).textTheme.bodySmall)
+                        Text(accountName, style: Theme.of(context).textTheme.bodyMedium)
                       ],
                     )
                   ],
