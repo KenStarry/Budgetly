@@ -25,25 +25,47 @@ class _MainScreenState extends State<MainScreen> {
 
     _controller = Get.find();
     _tabs = [
-      Expanded(
+      Obx(
+        () => Expanded(
+            flex: 1,
+            child: bottomAppBarIcon(
+                title: "Home",
+                icon: Icons.home,
+                isActive: _controller.currentTabIndex.value == 0,
+                onTap: () => _controller.onTabChanged(index: 0))),
+      ),
+      Obx(
+        () => Expanded(
           flex: 1,
-          child:
-              bottomAppBarIcon(title: "Home", icon: Icons.home, onTap: () {})),
-      Expanded(
-        flex: 1,
-        child: bottomAppBarIcon(
-            title: "Accounts", icon: Icons.credit_card, onTap: () {}),
+          child: bottomAppBarIcon(
+              title: "Accounts",
+              icon: Icons.credit_card,
+              isActive: _controller.currentTabIndex.value == 1,
+              onTap: () => _controller.onTabChanged(index: 1)),
+        ),
       ),
-      const SizedBox(width: 32,),
-      Expanded(
-        flex: 1,
-        child: bottomAppBarIcon(
-            title: "Categories", icon: Icons.fastfood_outlined, onTap: () {}),
+      const SizedBox(
+        width: 32,
       ),
-      Expanded(
-        flex: 1,
-        child: bottomAppBarIcon(
-            title: "Settings", icon: Icons.settings, onTap: () {}),
+      Obx(
+        () => Expanded(
+          flex: 1,
+          child: bottomAppBarIcon(
+              title: "Categories",
+              icon: Icons.fastfood_outlined,
+              isActive: _controller.currentTabIndex.value == 2,
+              onTap: () => _controller.onTabChanged(index: 2)),
+        ),
+      ),
+      Obx(
+        () => Expanded(
+          flex: 1,
+          child: bottomAppBarIcon(
+              title: "Settings",
+              icon: Icons.settings,
+              isActive: _controller.currentTabIndex.value == 3,
+              onTap: () => _controller.onTabChanged(index: 3)),
+        ),
       ),
     ];
   }
@@ -64,6 +86,9 @@ class _MainScreenState extends State<MainScreen> {
             backgroundColor: MyColors.lightColors['accent_4'],
             child: const Icon(Icons.add),
           ),
+          body: Obx(() => Center(
+              child: Text(
+                  "Current Tab is : ${_controller.currentTabIndex.value}"))),
           bottomNavigationBar: mainBottomAppBar(tabs: _tabs),
         ));
   }

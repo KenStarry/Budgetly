@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 Widget mainBottomAppBar({required List<Widget> tabs}) => BottomAppBar(
       height: 80,
       elevation: 0,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       shape: const CircularNotchedRectangle(),
       notchMargin: 4,
       child: Row(
