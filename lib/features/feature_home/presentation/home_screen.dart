@@ -1,3 +1,4 @@
+import 'package:budgetly/features/feature_home/presentation/components/balance_card.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,11 +14,15 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            //  greetings
-            //  balance
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              //  greetings
+              //  balance
+              BalanceCard()
+            ],
+          ),
         ),
       ),
     );
