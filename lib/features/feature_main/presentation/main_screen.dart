@@ -1,6 +1,9 @@
 import 'package:budgetly/features/feature_accounts/presentation/accounts_screen.dart';
 import 'package:budgetly/features/feature_categories/presentation/categories_screen.dart';
 import 'package:budgetly/features/feature_home/presentation/home_screen.dart';
+import 'package:budgetly/features/feature_main/presentation/components/bottom_sheets/accounts_bottom_sheet.dart';
+import 'package:budgetly/features/feature_main/presentation/components/bottom_sheets/categories_bottom_sheet.dart';
+import 'package:budgetly/features/feature_main/presentation/components/bottom_sheets/home_bottom_sheet.dart';
 import 'package:budgetly/features/feature_main/presentation/components/main_app_bar.dart';
 import 'package:budgetly/features/feature_main/presentation/components/main_bottom_appbar.dart';
 import 'package:budgetly/features/feature_main/presentation/controller/main_controller.dart';
@@ -106,7 +109,18 @@ class _MainScreenState extends State<MainScreen> {
               }
 
               return FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                  //  show different bottom sheets based on the page
+                  if (_controller.currentTabIndex.value == 0) {
+                    showHomeBottomSheet(context);
+                  } else if (_controller.currentTabIndex.value == 1) {
+                    showAccountsBottomSheet(context);
+                  } else if (_controller.currentTabIndex.value == 2) {
+                    showCategoriesBottomSheet(context);
+                  } else {
+                    showHomeBottomSheet(context);
+                  }
+                },
                 backgroundColor: MyColors.lightColors['accent_4'],
                 child: _controller.fabIcon.value,
               );
