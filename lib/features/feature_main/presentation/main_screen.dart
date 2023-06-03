@@ -49,8 +49,15 @@ class _MainScreenState extends State<MainScreen> {
               onTap: () => _controller.onTabChanged(index: 1)),
         ),
       ),
-      const SizedBox(
-        width: 32,
+      Obx(
+        () {
+          if (_controller.currentTabIndex.value == 3) {
+            return const SizedBox.shrink();
+          }
+          return const SizedBox(
+            width: 32,
+          );
+        },
       ),
       Obx(
         () => Expanded(
@@ -91,10 +98,19 @@ class _MainScreenState extends State<MainScreen> {
         child: Scaffold(
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {},
-            backgroundColor: MyColors.lightColors['accent_4'],
-            child: const Icon(Icons.add),
+          floatingActionButton: Obx(
+            () {
+              if (_controller.currentTabIndex.value == 3) {
+                //  return nothing
+                return const SizedBox.shrink();
+              }
+
+              return FloatingActionButton(
+                onPressed: () {},
+                backgroundColor: MyColors.lightColors['accent_4'],
+                child: _controller.fabIcon.value,
+              );
+            },
           ),
           body: Obx(
             () => IndexedStack(
