@@ -1,6 +1,10 @@
+import 'package:budgetly/features/feature_accounts/presentation/accounts_screen.dart';
+import 'package:budgetly/features/feature_categories/presentation/categories_screen.dart';
+import 'package:budgetly/features/feature_home/presentation/home_screen.dart';
 import 'package:budgetly/features/feature_main/presentation/components/main_app_bar.dart';
 import 'package:budgetly/features/feature_main/presentation/components/main_bottom_appbar.dart';
 import 'package:budgetly/features/feature_main/presentation/controller/main_controller.dart';
+import 'package:budgetly/features/feature_settings/presentation/settings_screen.dart';
 import 'package:budgetly/theme/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,6 +22,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   late final MainController _controller;
   late final List<Widget> _tabs;
+  late final List<Widget> _pages;
 
   @override
   void initState() {
@@ -68,6 +73,12 @@ class _MainScreenState extends State<MainScreen> {
         ),
       ),
     ];
+    _pages = const [
+      HomeScreen(),
+      AccountsScreen(),
+      CategoriesScreen(),
+      SettingsScreen()
+    ];
   }
 
   @override
@@ -86,9 +97,12 @@ class _MainScreenState extends State<MainScreen> {
             backgroundColor: MyColors.lightColors['accent_4'],
             child: const Icon(Icons.add),
           ),
-          body: Obx(() => Center(
-              child: Text(
-                  "Current Tab is : ${_controller.currentTabIndex.value}"))),
+          body: Obx(
+            () => IndexedStack(
+              index: _controller.currentTabIndex.value,
+              children: _pages,
+            ),
+          ),
           bottomNavigationBar: mainBottomAppBar(tabs: _tabs),
         ));
   }

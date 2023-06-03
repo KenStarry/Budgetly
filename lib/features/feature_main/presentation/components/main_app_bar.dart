@@ -9,12 +9,11 @@ PreferredSizeWidget mainAppBar(
     AppBar(
       title: SizedBox(
         width: double.infinity,
-        height: 80,
         child: Row(
           children: [
             const CircleAvatar(
               backgroundImage: AssetImage("assets/images/lady.jpg"),
-              radius: 30,
+              radius: 25,
             ),
 
             const SizedBox(width: 16,),
