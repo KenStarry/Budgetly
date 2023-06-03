@@ -89,7 +89,6 @@ class _MainScreenState extends State<MainScreen> {
             systemNavigationBarIconBrightness:
                 _controller.isDarkMode() ? Brightness.light : Brightness.dark),
         child: Scaffold(
-          appBar: mainAppBar(context: context, controller: _controller),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           floatingActionButton: FloatingActionButton(
