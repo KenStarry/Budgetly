@@ -1,7 +1,7 @@
 import 'package:budgetly/features/feature_accounts/presentation/accounts_screen.dart';
 import 'package:budgetly/features/feature_categories/presentation/categories_screen.dart';
 import 'package:budgetly/features/feature_home/presentation/home_screen.dart';
-import 'package:budgetly/features/feature_main/presentation/components/bottom_sheets/accounts_bottom_sheet.dart';
+import 'package:budgetly/features/feature_main/presentation/components/bottom_sheets/accounts_sheet/accounts_bottom_sheet.dart';
 import 'package:budgetly/features/feature_main/presentation/components/bottom_sheets/categories_bottom_sheet.dart';
 import 'package:budgetly/features/feature_main/presentation/components/bottom_sheets/home_bottom_sheet.dart';
 import 'package:budgetly/features/feature_main/presentation/components/main_app_bar.dart';
