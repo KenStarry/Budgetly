@@ -1,5 +1,7 @@
 import 'package:budgetly/features/feature_main/presentation/components/main_app_bar.dart';
+import 'package:budgetly/features/feature_main/presentation/components/main_bottom_appbar.dart';
 import 'package:budgetly/features/feature_main/presentation/controller/main_controller.dart';
+import 'package:budgetly/theme/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -30,6 +32,27 @@ class _MainScreenState extends State<MainScreen> {
                 _controller.isDarkMode() ? Brightness.light : Brightness.dark),
         child: Scaffold(
           appBar: mainAppBar(context: context, controller: _controller),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: FloatingActionButton(
+            onPressed: (){},
+            backgroundColor: MyColors.lightColors['accent_4'],
+            child: const Icon(Icons.add),
+          ),
+          bottomNavigationBar: mainBottomAppBar(),
         ));
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
