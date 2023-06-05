@@ -27,12 +27,12 @@ class MyTheme {
           color: MyColors.lightColors['text_black_87'],
         ),
         bodyLarge: TextStyle(
-            fontSize: 18,
+            fontSize: 16,
             fontWeight: FontWeight.w700,
             fontFamily: 'Poppins',
             color: MyColors.lightColors['text_black_54']),
         bodyMedium: TextStyle(
-            fontSize: 16,
+            fontSize: 14,
             fontWeight: FontWeight.w600,
             fontFamily: 'Poppins',
             color: MyColors.lightColors['text_black_54']),
@@ -68,12 +68,12 @@ class MyTheme {
           color: MyColors.darkColors['text_white_70'],
         ),
         bodyLarge: TextStyle(
-            fontSize: 18,
+            fontSize: 16,
             fontWeight: FontWeight.w700,
             fontFamily: 'Poppins',
             color: MyColors.darkColors['text_white_60']),
         bodyMedium: TextStyle(
-            fontSize: 16,
+            fontSize: 14,
             fontWeight: FontWeight.w600,
             fontFamily: 'Poppins',
             color: MyColors.darkColors['text_white_60']),

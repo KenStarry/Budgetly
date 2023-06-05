@@ -4,8 +4,9 @@ import '../../../../theme/my_colors.dart';
 class AccountCard extends StatelessWidget {
 
   final String accountName;
+  final double accountBalance;
 
-  const AccountCard({Key? key, required this.accountName}) : super(key: key);
+  const AccountCard({Key? key, required this.accountName, required this.accountBalance}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +67,7 @@ class AccountCard extends StatelessWidget {
                           text: "Ksh. ",
                           style: Theme.of(context).textTheme.bodyMedium),
                       TextSpan(
-                          text: "0.00",
+                          text: "$accountBalance",
                           style: Theme.of(context).textTheme.titleLarge),
                     ]))
                   ],
