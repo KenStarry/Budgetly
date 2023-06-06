@@ -1,6 +1,7 @@
 import 'package:budgetly/core/domain/models/account.dart';
 import 'package:budgetly/core/utils/hive_utils.dart';
-import 'package:budgetly/di/controllers/controllers_di.dart';
+import 'package:budgetly/di/controllers_di.dart';
+import 'package:budgetly/di/locator.dart';
 import 'package:budgetly/features/feature_main/presentation/main_screen.dart';
 import 'package:budgetly/navigation/nav_constants.dart';
 import 'package:budgetly/theme/my_theme.dart';
@@ -18,6 +19,8 @@ void main() async {
 
   await Hive.initFlutter(appDocumentDirectory.path);
   Hive.registerAdapter(AccountAdapter());
+
+  invoke();
 
   runApp(const MyApp());
 }
