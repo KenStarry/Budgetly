@@ -1,4 +1,5 @@
 import 'package:budgetly/features/feature_accounts/presentation/components/account_card.dart';
+import 'package:budgetly/features/feature_main/presentation/components/bottom_sheets/accounts_sheet/account_text_field.dart';
 import 'package:budgetly/features/feature_main/presentation/controller/main_form_controller.dart';
 import 'package:budgetly/theme/my_colors.dart';
 import 'package:flutter/material.dart';
@@ -8,13 +9,14 @@ void showAccountsBottomSheet(
     BuildContext context, TextEditingController myController) {
   final MainFormController controller = Get.find();
 
+  controller.updateCurrentDate();
+
   showModalBottomSheet(
       context: context,
       builder: (context) => Padding(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom
-        ),
-        child: Wrap(
+            padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom),
+            child: Wrap(
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width,
@@ -51,6 +53,7 @@ void showAccountsBottomSheet(
                         () => AccountCard(
                           accountName: controller.accountName.value,
                           accountBalance: controller.accountBalance.value,
+                          currentDate: controller.currentDate.value,
                         ),
                       ),
 
@@ -72,40 +75,12 @@ void showAccountsBottomSheet(
                       ),
 
                       //  account name
-                      Row(
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: MyColors.lightColors['accent_4']
-                                    ?.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(50)),
-                            child: Icon(
-                              Icons.wallet,
-                              color: MyColors.lightColors['accent_4'],
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 24,
-                          ),
-                          Expanded(
-                            child: TextField(
-                              onChanged: (text) =>
-                                  controller.updateAccountName(name: text),
-                              decoration: InputDecoration(
-                                  floatingLabelBehavior:
-                                      FloatingLabelBehavior.auto,
-                                  hintText: "Account Name",
-                                  hintStyle:
-                                      Theme.of(context).textTheme.bodyMedium,
-                                  focusColor: Theme.of(context).primaryColor,
-                                  border: InputBorder.none),
-                              cursorColor: Theme.of(context).primaryColor,
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ),
-                        ],
+                      AccountTextField(
+                        hintText: "Account Name",
+                        icon: Icons.wallet,
+                        onChanged: (text) {
+                          controller.updateAccountName(name: text);
+                        },
                       ),
 
                       const SizedBox(
@@ -113,48 +88,34 @@ void showAccountsBottomSheet(
                       ),
 
                       //  account balance
-                      Row(
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: MyColors.lightColors['accent_4']
-                                    ?.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(50)),
-                            child: Icon(
-                              Icons.monetization_on,
-                              color: MyColors.lightColors['accent_4'],
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 24,
-                          ),
-                          Expanded(
-                            child: TextField(
-                              onChanged: (text) =>
-                                  controller.updateAccountBalance(balance: text),
-                              decoration: InputDecoration(
-                                  floatingLabelBehavior:
-                                      FloatingLabelBehavior.auto,
-                                  hintText: "0.00",
-                                  hintStyle:
-                                      Theme.of(context).textTheme.bodyMedium,
-                                  focusColor: Theme.of(context).primaryColor,
-                                  border: InputBorder.none),
-                              cursorColor: Theme.of(context).primaryColor,
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ),
-                        ],
-                      )
+                      AccountTextField(
+                          hintText: "Ksh. 0.00",
+                          icon: Icons.monetization_on,
+                          onChanged: (text) {
+                            controller.updateAccountBalance(balance: text);
+                          }),
+
+                      const SizedBox(
+                        height: 16,
+                      ),
+
                       //  submit button
+                      Align(
+                        alignment: AlignmentDirectional.centerEnd,
+                        child: FilledButton(
+                          onPressed: (){},
+                          style: FilledButton.styleFrom(
+                            backgroundColor: MyColors.lightColors['accent_3']
+                          ),
+                          child: Text("save"),
+                        ),
+                      )
                     ],
                   ),
                 )
               ],
             ),
-      ),
+          ),
       isScrollControlled: true,
       useSafeArea: true,
       backgroundColor: Colors.transparent,

@@ -2,16 +2,21 @@ import 'package:budgetly/core/utils/math_utils.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../theme/my_colors.dart';
-class AccountCard extends StatelessWidget {
 
+class AccountCard extends StatelessWidget {
   final String accountName;
   final double accountBalance;
+  final String currentDate;
 
-  const AccountCard({Key? key, required this.accountName, required this.accountBalance}) : super(key: key);
+  const AccountCard(
+      {Key? key,
+      required this.accountName,
+      required this.accountBalance,
+      required this.currentDate})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
         width: double.infinity,
         height: 200,
@@ -85,17 +90,29 @@ class AccountCard extends StatelessWidget {
                     //  creation date
                     Row(
                       children: [
-                        const Icon(Icons.date_range_outlined, size: 16,),
-                        const SizedBox(width: 8,),
-                        Text("12-3-23", style: Theme.of(context).textTheme.bodySmall),
+                        const Icon(
+                          Icons.date_range_outlined,
+                          size: 16,
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        Text(currentDate,
+                            style: Theme.of(context).textTheme.bodySmall),
                       ],
                     ),
 
                     Row(
                       children: [
-                        const Icon(Icons.wallet, size: 16,),
-                        const SizedBox(width: 8,),
-                        Text(accountName, style: Theme.of(context).textTheme.bodyMedium)
+                        const Icon(
+                          Icons.wallet,
+                          size: 16,
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        Text(accountName,
+                            style: Theme.of(context).textTheme.bodyMedium)
                       ],
                     )
                   ],
