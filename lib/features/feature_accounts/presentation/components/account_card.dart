@@ -1,3 +1,4 @@
+import 'package:budgetly/core/utils/math_utils.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../theme/my_colors.dart';
@@ -67,7 +68,7 @@ class AccountCard extends StatelessWidget {
                           text: "Ksh. ",
                           style: Theme.of(context).textTheme.bodyMedium),
                       TextSpan(
-                          text: "$accountBalance",
+                          text: MathUtils.addComma(number: accountBalance),
                           style: Theme.of(context).textTheme.titleLarge),
                     ]))
                   ],
