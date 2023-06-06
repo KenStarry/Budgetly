@@ -16,106 +16,108 @@ void showAccountsBottomSheet(
       builder: (context) => Padding(
             padding: EdgeInsets.only(
                 bottom: MediaQuery.of(context).viewInsets.bottom),
-            child: Wrap(
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).scaffoldBackgroundColor,
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(16),
-                        topRight: Radius.circular(16),
-                      )),
-                  child: Column(
-                    children: [
-                      //  bottom sheet drag icon
-                      Container(
-                        width: 50,
-                        height: 4,
-                        margin: const EdgeInsets.symmetric(vertical: 8),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            color: Colors.grey.shade600),
-                      ),
-
-                      Text(
-                        "Add Account",
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-
-                      const SizedBox(
-                        height: 16,
-                      ),
-
-                      //  account card to be customized
-                      Obx(
-                        () => AccountCard(
-                          accountName: controller.accountName.value,
-                          accountBalance: controller.accountBalance.value,
-                          currentDate: controller.currentDate.value,
+            child: SingleChildScrollView(
+              child: Wrap(
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).scaffoldBackgroundColor,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(16),
+                          topRight: Radius.circular(16),
+                        )),
+                    child: Column(
+                      children: [
+                        //  bottom sheet drag icon
+                        Container(
+                          width: 50,
+                          height: 4,
+                          margin: const EdgeInsets.symmetric(vertical: 8),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16),
+                              color: Colors.grey.shade600),
                         ),
-                      ),
 
-                      const SizedBox(
-                        height: 16,
-                      ),
-
-                      //  details heading
-                      Align(
-                        alignment: AlignmentDirectional.centerStart,
-                        child: Text(
-                          "Details",
-                          style: Theme.of(context).textTheme.bodyLarge,
+                        Text(
+                          "Add Account",
+                          style: Theme.of(context).textTheme.titleSmall,
                         ),
-                      ),
 
-                      const SizedBox(
-                        height: 16,
-                      ),
+                        const SizedBox(
+                          height: 16,
+                        ),
 
-                      //  account name
-                      AccountTextField(
-                        hintText: "Account Name",
-                        icon: Icons.wallet,
-                        onChanged: (text) {
-                          controller.updateAccountName(name: text);
-                        },
-                      ),
-
-                      const SizedBox(
-                        height: 16,
-                      ),
-
-                      //  account balance
-                      AccountTextField(
-                          hintText: "Ksh. 0.00",
-                          icon: Icons.monetization_on,
-                          onChanged: (text) {
-                            controller.updateAccountBalance(balance: text);
-                          }),
-
-                      const SizedBox(
-                        height: 16,
-                      ),
-
-                      //  submit button
-                      Align(
-                        alignment: AlignmentDirectional.centerEnd,
-                        child: FilledButton(
-                          onPressed: (){
-                            //  TODO - Save account to Hive database
-                          },
-                          style: FilledButton.styleFrom(
-                            backgroundColor: MyColors.lightColors['accent_3']
+                        //  account card to be customized
+                        Obx(
+                          () => AccountCard(
+                            accountName: controller.accountName.value,
+                            accountBalance: controller.accountBalance.value,
+                            currentDate: controller.currentDate.value,
                           ),
-                          child: Text("save"),
                         ),
-                      )
-                    ],
-                  ),
-                )
-              ],
+
+                        const SizedBox(
+                          height: 16,
+                        ),
+
+                        //  details heading
+                        Align(
+                          alignment: AlignmentDirectional.centerStart,
+                          child: Text(
+                            "Details",
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                        ),
+
+                        const SizedBox(
+                          height: 16,
+                        ),
+
+                        //  account name
+                        AccountTextField(
+                          hintText: "Account Name",
+                          icon: Icons.wallet,
+                          onChanged: (text) {
+                            controller.updateAccountName(name: text);
+                          },
+                        ),
+
+                        const SizedBox(
+                          height: 16,
+                        ),
+
+                        //  account balance
+                        AccountTextField(
+                            hintText: "Ksh. 0.00",
+                            icon: Icons.monetization_on,
+                            onChanged: (text) {
+                              controller.updateAccountBalance(balance: text);
+                            }),
+
+                        const SizedBox(
+                          height: 16,
+                        ),
+
+                        //  submit button
+                        Align(
+                          alignment: AlignmentDirectional.centerEnd,
+                          child: FilledButton(
+                            onPressed: (){
+                              //  TODO - Save account to Hive database
+                            },
+                            style: FilledButton.styleFrom(
+                              backgroundColor: MyColors.lightColors['accent_3']
+                            ),
+                            child: Text("save"),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
       isScrollControlled: true,
