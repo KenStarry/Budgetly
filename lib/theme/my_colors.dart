@@ -8,7 +8,7 @@ class MyColors {
     'accent_1': Color(0xff03045e),
     'accent_2': Color(0xff0077b6),
     'accent_3': Color(0xff00b4d8),
-    'accent_4': Color(0xff90e0ef),
+    'accent_4': Color(0xffefbb90),
     'accent_5': Color(0xffcaf0f8),
     'scaffold_bg': Color(0xffffffff),
     'icon_color': Colors.black54,
