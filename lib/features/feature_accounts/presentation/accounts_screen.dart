@@ -1,6 +1,7 @@
 import 'package:budgetly/core/domain/models/account.dart';
 import 'package:budgetly/core/utils/hive_utils.dart';
 import 'package:budgetly/features/feature_accounts/presentation/components/account_card.dart';
+import 'package:budgetly/features/feature_accounts/presentation/components/accounts_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -22,34 +23,48 @@ class _AccountsScreenState extends State<AccountsScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        title: Text(
-          "Accounts",
-          style: Theme.of(context).textTheme.titleMedium,
+        title: SizedBox(
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Accounts",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(height: 12,),
+              Row(
+                children: [
+                  Text(
+                    "Total",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  Icon(Icons.arrow_right, color: Theme.of(context).iconTheme.color,),
+                  //  total price
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(16)
+                    ),
+                    child: Text("Ksh. 10,000", style: Theme.of(context).textTheme.bodySmall,),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
-        toolbarHeight: 100,
+        toolbarHeight: 150,
         elevation: 0,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Obx(() => ValueListenableBuilder(
-              valueListenable: accountsController.accounts.value,
-              builder: (context, box, widget) => ListView.separated(
-                physics: const BouncingScrollPhysics(),
-                itemCount: box.length,
-                itemBuilder: (context, index) {
-                  final account = box.getAt(index) as Account;
-
-                  return AccountCard(
-                      accountName: account.accountName,
-                      accountBalance: account.accountBalance,
-                      currentDate: account.accountCreated.toString());
-                },
-                separatorBuilder: (context, index) => const SizedBox(
-                  height: 16,
-                ),
-              ),
-            )),
+        child: Column(
+          children: [
+            Flexible(child: AccountsList(accountsController: accountsController))
+          ],
+        ),
       ),
     );
   }
