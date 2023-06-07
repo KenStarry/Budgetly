@@ -114,6 +114,9 @@ void showAccountsBottomSheet(
                                       accountBalance:
                                           controller.accountBalance.value,
                                       accountCreated: DateTime.now()));
+
+                              //  get the list of accounts
+                              accountsController.getAccounts();
                             },
                             style: FilledButton.styleFrom(
                                 backgroundColor:

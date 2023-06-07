@@ -71,10 +71,10 @@ class AccountCard extends StatelessWidget {
                     Text.rich(TextSpan(children: [
                       TextSpan(
                           text: "Ksh. ",
-                          style: Theme.of(context).textTheme.bodyMedium),
+                          style: Theme.of(context).textTheme.bodyLarge),
                       TextSpan(
                           text: MathUtils.addComma(number: accountBalance),
-                          style: Theme.of(context).textTheme.titleLarge),
+                          style: Theme.of(context).textTheme.titleMedium),
                     ]))
                   ],
                 )),

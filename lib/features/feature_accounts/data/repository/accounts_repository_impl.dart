@@ -14,8 +14,7 @@ class AccountsRepositoryImpl implements AccountsRepository {
   }
 
   @override
-  Future<List<Account>> getAccountsFromDB() async {
-    List<Account> accounts = accountsBox as List<Account>;
-    return accounts;
+  Future<Box<dynamic>> getAccountsFromDB() async {
+    return accountsBox;
   }
 }
