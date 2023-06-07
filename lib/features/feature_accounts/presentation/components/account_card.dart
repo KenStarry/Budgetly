@@ -81,27 +81,12 @@ class AccountCard extends StatelessWidget {
 
             //  account name
             Align(
-              alignment: AlignmentDirectional.topEnd,
+              alignment: AlignmentDirectional.topStart,
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    //  creation date
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.date_range_outlined,
-                          size: 16,
-                        ),
-                        const SizedBox(
-                          width: 8,
-                        ),
-                        Text(currentDate,
-                            style: Theme.of(context).textTheme.bodySmall),
-                      ],
-                    ),
-
                     Row(
                       children: [
                         const Icon(
@@ -114,7 +99,7 @@ class AccountCard extends StatelessWidget {
                         Text(accountName,
                             style: Theme.of(context).textTheme.bodyMedium)
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
