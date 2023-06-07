@@ -3,6 +3,7 @@ import 'package:budgetly/di/locator.dart';
 import 'package:budgetly/features/feature_accounts/domain/use_cases/accounts_use_cases.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 
 import '../../../../core/domain/models/account.dart';
 
@@ -11,7 +12,7 @@ class AccountsController extends GetxController {
   AccountsUseCases useCases = locator.get<AccountsUseCases>();
 
   //  list of all accounts
-  var accounts = Hive.box(HiveUtils.accountsBox).obs;
+  var accounts = Hive.box(HiveUtils.accountsBox).listenable().obs;
 
   //  add account
   Future<void> addAccount({required Account account}) async {
@@ -20,6 +21,6 @@ class AccountsController extends GetxController {
 
   //  get all accounts
   Future<void> getAccounts() async {
-    accounts.value = await useCases.getAccounts.invoke();
+    // accounts.value = await useCases.getAccounts.invoke();
   }
 }

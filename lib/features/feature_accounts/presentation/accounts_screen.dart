@@ -19,8 +19,6 @@ class _AccountsScreenState extends State<AccountsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    accountsController.getAccounts();
-
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
@@ -34,19 +32,23 @@ class _AccountsScreenState extends State<AccountsScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Obx(() => ListView.separated(
-          physics: const BouncingScrollPhysics(),
-              itemCount: accountsController.accounts.value.length,
-              itemBuilder: (context, index) {
-                final account =
-                    accountsController.accounts.value.getAt(index) as Account;
+        child: Obx(() => ValueListenableBuilder(
+              valueListenable: accountsController.accounts.value,
+              builder: (context, box, widget) => ListView.separated(
+                physics: const BouncingScrollPhysics(),
+                itemCount: box.length,
+                itemBuilder: (context, index) {
+                  final account = box.getAt(index) as Account;
 
-                return AccountCard(
-                    accountName: account.accountName,
-                    accountBalance: account.accountBalance,
-                    currentDate: account.accountCreated.toString());
-              },
-              separatorBuilder: (context, index) => const SizedBox(height: 16,),
+                  return AccountCard(
+                      accountName: account.accountName,
+                      accountBalance: account.accountBalance,
+                      currentDate: account.accountCreated.toString());
+                },
+                separatorBuilder: (context, index) => const SizedBox(
+                  height: 16,
+                ),
+              ),
             )),
       ),
     );

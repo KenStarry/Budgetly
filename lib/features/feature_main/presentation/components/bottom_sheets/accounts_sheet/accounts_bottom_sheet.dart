@@ -115,8 +115,8 @@ void showAccountsBottomSheet(
                                           controller.accountBalance.value,
                                       accountCreated: DateTime.now()));
 
-                              //  get the list of accounts
-                              accountsController.getAccounts();
+                              //  pop the bottom sheet
+                              Get.back(canPop: true);
                             },
                             style: FilledButton.styleFrom(
                                 backgroundColor:
