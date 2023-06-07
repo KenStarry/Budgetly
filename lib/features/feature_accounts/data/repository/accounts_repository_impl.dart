@@ -12,9 +12,4 @@ class AccountsRepositoryImpl implements AccountsRepository {
   Future<void> addAccountToDB({required Account account}) async {
     await accountsBox.add(account);
   }
-
-  @override
-  Future<Box<dynamic>> getAccountsFromDB() async {
-    return accountsBox;
-  }
 }

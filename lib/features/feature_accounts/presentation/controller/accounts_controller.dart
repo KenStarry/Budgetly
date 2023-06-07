@@ -18,9 +18,4 @@ class AccountsController extends GetxController {
   Future<void> addAccount({required Account account}) async {
     await useCases.addAccount.invoke(account: account);
   }
-
-  //  get all accounts
-  Future<void> getAccounts() async {
-    // accounts.value = await useCases.getAccounts.invoke();
-  }
 }
