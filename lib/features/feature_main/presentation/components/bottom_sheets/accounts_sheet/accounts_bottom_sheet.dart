@@ -139,6 +139,6 @@ void showAccountsBottomSheet(
         topLeft: Radius.circular(16),
         topRight: Radius.circular(16),
       ))).whenComplete(() {
-    controller.updateAccountName(name: "Account Name");
+    controller.resetAccountDetails();
   });
 }

@@ -12,7 +12,15 @@ class MainFormController extends GetxController {
   //  date controller
   var currentDate = "".obs;
 
-  void updateAccountName({required String name}) => accountName.value = name;
+  void resetAccountDetails() {
+    accountName.value = "Account Name";
+    accountBalance.value = 0.00;
+    currentDate.value = "";
+  }
+
+  void updateAccountName({required String name}) =>
+      accountName.value = name;
+
 
   void updateAccountBalance({required String balance}) =>
       accountBalance.value = double.parse(balance);
