@@ -1,4 +1,6 @@
+import 'package:budgetly/core/domain/models/account.dart';
 import 'package:budgetly/features/feature_accounts/presentation/components/account_card.dart';
+import 'package:budgetly/features/feature_accounts/presentation/controller/accounts_controller.dart';
 import 'package:budgetly/features/feature_main/presentation/components/bottom_sheets/accounts_sheet/account_text_field.dart';
 import 'package:budgetly/features/feature_main/presentation/controller/main_form_controller.dart';
 import 'package:budgetly/theme/my_colors.dart';
@@ -8,6 +10,7 @@ import 'package:get/get.dart';
 void showAccountsBottomSheet(
     BuildContext context, TextEditingController myController) {
   final MainFormController controller = Get.find();
+  final AccountsController accountsController = Get.find();
 
   controller.updateCurrentDate();
 
@@ -104,12 +107,17 @@ void showAccountsBottomSheet(
                         Align(
                           alignment: AlignmentDirectional.centerEnd,
                           child: FilledButton(
-                            onPressed: (){
-                              //  TODO - Save account to Hive database
+                            onPressed: () {
+                              accountsController.addAccount(
+                                  account: Account(
+                                      accountName: controller.accountName.value,
+                                      accountBalance:
+                                          controller.accountBalance.value,
+                                      accountCreated: DateTime.now()));
                             },
                             style: FilledButton.styleFrom(
-                              backgroundColor: MyColors.lightColors['accent_3']
-                            ),
+                                backgroundColor:
+                                    MyColors.lightColors['accent_3']),
                             child: Text("save"),
                           ),
                         )

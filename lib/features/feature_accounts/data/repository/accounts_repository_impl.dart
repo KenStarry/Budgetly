@@ -18,6 +18,4 @@ class AccountsRepositoryImpl implements AccountsRepository {
     List<Account> accounts = accountsBox as List<Account>;
     return accounts;
   }
-  
-  
 }
