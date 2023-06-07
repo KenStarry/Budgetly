@@ -6,7 +6,7 @@ class GetAccounts {
 
   AccountsRepository repo = locator.get<AccountsRepository>();
 
-  Future<List<Account>> getAccounts() async {
+  Future<List<Account>> invoke() async {
     return await repo.getAccountsFromDB();
   }
 }
