@@ -12,4 +12,9 @@ class AccountsRepositoryImpl implements AccountsRepository {
   Future<void> addAccountToDB({required Account account}) async {
     await accountsBox.add(account);
   }
+
+  @override
+  Future<void> deleteAccountFromDB({required Account account}) async {
+    await accountsBox.delete(account);
+  }
 }
