@@ -1,8 +1,15 @@
 import 'package:budgetly/theme/my_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../../../../core/utils/math_utils.dart';
+import '../../../feature_accounts/presentation/controller/accounts_controller.dart';
 
 class BalanceCard extends StatelessWidget {
-  const BalanceCard({Key? key}) : super(key: key);
+  BalanceCard({Key? key}) : super(key: key);
+
+  final AccountsController accountsController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +61,16 @@ class BalanceCard extends StatelessWidget {
                       const SizedBox(
                         height: 8,
                       ),
-                      Text.rich(TextSpan(children: [
-                        TextSpan(
-                            text: "Ksh. ",
-                            style: Theme.of(context).textTheme.bodyMedium),
-                        TextSpan(
-                            text: "8,000",
-                            style: Theme.of(context).textTheme.titleLarge),
-                      ]))
+                      Obx(
+                        () => Text.rich(TextSpan(children: [
+                          TextSpan(
+                              text: "Ksh. ",
+                              style: Theme.of(context).textTheme.bodyMedium),
+                          TextSpan(
+                              text: MathUtils.addComma(number: accountsController.total.value),
+                              style: Theme.of(context).textTheme.titleMedium),
+                        ])),
+                      )
                     ],
                   )),
 

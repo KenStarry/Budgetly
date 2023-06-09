@@ -18,7 +18,9 @@ class AccountsList extends StatelessWidget {
       valueListenable: accountsController.accounts.value,
       builder: (context, box, widget) {
 
-        accountsController.getTotal(box);
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          accountsController.getTotal(box);
+        });
 
         return ListView.separated(
         physics: const BouncingScrollPhysics(),

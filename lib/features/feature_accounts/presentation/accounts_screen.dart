@@ -1,5 +1,6 @@
 import 'package:budgetly/core/domain/models/account.dart';
 import 'package:budgetly/core/utils/hive_utils.dart';
+import 'package:budgetly/core/utils/math_utils.dart';
 import 'package:budgetly/features/feature_accounts/presentation/components/account_card.dart';
 import 'package:budgetly/features/feature_accounts/presentation/components/accounts_list.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
                         color: Theme.of(context).primaryColor.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(16)),
                     child: Obx(() => Text(
-                          accountsController.total.value.toString(),
+                          'Ksh. ${MathUtils.addComma(number: accountsController.total.value)}',
                           style: Theme.of(context).textTheme.bodySmall,
                         )),
                   )
