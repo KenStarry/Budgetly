@@ -8,9 +8,11 @@ class MyColors {
     'accent_1': Color(0xff03045e),
     'accent_2': Color(0xff0077b6),
     'accent_3': Color(0xff00b4d8),
-    'accent_4': Color(0xffefbb90),
+    'accent_4': Color(0xff90e0ef),
     'accent_5': Color(0xffcaf0f8),
     'scaffold_bg': Color(0xffffffff),
+    'success': Colors.greenAccent.shade700,
+    'error': Colors.redAccent.shade700,
     'icon_color': Colors.black54,
     'text_black': Colors.black,
     'text_black_87': Colors.black87,
@@ -18,12 +20,14 @@ class MyColors {
   };
 
   /// Dark theme colors
-  static const Map<String, Color> darkColors = {
+  static Map<String, Color> darkColors = {
     'accent_1': Color(0xff03045e),
     'accent_2': Color(0xff0077b6),
     'accent_3': Color(0xff00b4d8),
     'accent_4': Color(0xff90e0ef),
     'accent_5': Color(0xffcaf0f8),
+    'success': Colors.greenAccent.shade700,
+    'error': Colors.redAccent.shade700,
     'scaffold_bg': Colors.black45,
     'icon_color': Colors.white54,
     'text_white': Colors.white,

@@ -32,22 +32,30 @@ class _AccountsScreenState extends State<AccountsScreen> {
                 "Accounts",
                 style: Theme.of(context).textTheme.titleMedium,
               ),
-              const SizedBox(height: 12,),
+              const SizedBox(
+                height: 12,
+              ),
               Row(
                 children: [
                   Text(
                     "Total",
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
-                  Icon(Icons.arrow_right, color: Theme.of(context).iconTheme.color,),
+                  Icon(
+                    Icons.arrow_right,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
                   //  total price
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(16)
-                    ),
-                    child: Text("Ksh. 10,000", style: Theme.of(context).textTheme.bodySmall,),
+                        color: Theme.of(context).primaryColor.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(16)),
+                    child: Obx(() => Text(
+                          accountsController.total.value.toString(),
+                          style: Theme.of(context).textTheme.bodySmall,
+                        )),
                   )
                 ],
               )
@@ -62,7 +70,8 @@ class _AccountsScreenState extends State<AccountsScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
-            Flexible(child: AccountsList(accountsController: accountsController))
+            Flexible(
+                child: AccountsList(accountsController: accountsController))
           ],
         ),
       ),

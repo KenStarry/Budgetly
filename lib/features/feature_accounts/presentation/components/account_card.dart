@@ -1,4 +1,5 @@
 import 'package:budgetly/core/utils/math_utils.dart';
+import 'package:budgetly/features/feature_accounts/presentation/components/income_card.dart';
 import 'package:budgetly/theme/card_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -25,26 +26,13 @@ class AccountCard extends StatelessWidget {
         child: Stack(
           fit: StackFit.loose,
           children: [
-            //  background image - style
-            // ClipRRect(
-            //   borderRadius: BorderRadius.circular(16),
-            //   child: Opacity(
-            //     opacity: 0.8,
-            //     child: Image.asset(
-            //       "assets/images/card_pattern1.png",
-            //       width: double.infinity,
-            //       height: double.infinity,
-            //       fit: BoxFit.cover,
-            //     ),
-            //   ),
-            // ),
-
             //  canvas
             SizedBox(
               width: double.infinity,
               height: double.infinity,
               child: CustomPaint(
-                painter: CardStyles.roundedLinesStyle(color: Theme.of(context).primaryColor),
+                painter: CardStyles.roundedLinesStyle(
+                    color: Theme.of(context).primaryColor),
               ),
             ),
 

@@ -16,7 +16,11 @@ class AccountsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() => ValueListenableBuilder(
       valueListenable: accountsController.accounts.value,
-      builder: (context, box, widget) => ListView.separated(
+      builder: (context, box, widget) {
+
+        accountsController.getTotal(box);
+
+        return ListView.separated(
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
         itemCount: box.length,
@@ -31,7 +35,8 @@ class AccountsList extends StatelessWidget {
         separatorBuilder: (context, index) => const SizedBox(
           height: 16,
         ),
-      ),
+      );
+      },
     ));
   }
 }

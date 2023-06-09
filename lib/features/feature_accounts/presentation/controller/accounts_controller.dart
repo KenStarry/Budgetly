@@ -13,9 +13,37 @@ class AccountsController extends GetxController {
 
   //  list of all accounts
   var accounts = Hive.box(HiveUtils.accountsBox).listenable().obs;
+  //  total of all amounts
+  var total = 0.00.obs;
 
   //  add account
   Future<void> addAccount({required Account account}) async {
     await useCases.addAccount.invoke(account: account);
   }
+
+  void getTotal(Box accounts) {
+
+    //  clear the total first
+    total.value = 0.00;
+
+    for (int i = 0; i < accounts.length; i++) {
+      var account = accounts.getAt(i) as Account;
+      total.value += account.accountBalance;
+      print(account.accountBalance);
+    }
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
