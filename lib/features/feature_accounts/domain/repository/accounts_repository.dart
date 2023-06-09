@@ -6,5 +6,5 @@ abstract class AccountsRepository {
   Future<void> addAccountToDB({required Account account});
 
   //  delete account from hive
-  Future<void> deleteAccountFromDB({required Account account});
+  Future<void> deleteAccountFromDB({required int index});
 }

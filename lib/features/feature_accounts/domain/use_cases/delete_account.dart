@@ -6,7 +6,7 @@ class DeleteAccount {
 
   final AccountsRepository repo = locator.get<AccountsRepository>();
 
-  Future<void> invoke({required Account account}) async {
-    await repo.deleteAccountFromDB(account: account);
+  Future<void> invoke({required int index}) async {
+    await repo.deleteAccountFromDB(index: index);
   }
 }

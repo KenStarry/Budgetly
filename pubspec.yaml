@@ -20,6 +20,8 @@ dependencies:
   hive_flutter: ^1.1.0
   # for OS -Specific directory paths
   path_provider: ^2.0.15
+  # slidable
+  flutter_slidable: ^3.0.0
 
 
 dev_dependencies:

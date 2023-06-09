@@ -14,7 +14,7 @@ class AccountsRepositoryImpl implements AccountsRepository {
   }
 
   @override
-  Future<void> deleteAccountFromDB({required Account account}) async {
-    await accountsBox.delete(account);
+  Future<void> deleteAccountFromDB({required int index}) async {
+    await accountsBox.deleteAt(index);
   }
 }

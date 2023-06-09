@@ -22,8 +22,8 @@ class AccountsController extends GetxController {
   }
 
   //  delete account
-  Future<void> deleteAccount({required Account account}) async {
-    await useCases.deleteAccount.invoke(account: account);
+  Future<void> deleteAccount({required int index}) async {
+    await useCases.deleteAccount.invoke(index: index);
   }
 
   void getTotal(Box accounts) {
