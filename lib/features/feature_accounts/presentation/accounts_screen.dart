@@ -29,9 +29,27 @@ class _AccountsScreenState extends State<AccountsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Accounts",
-                style: Theme.of(context).textTheme.titleMedium,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Accounts",
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  InkWell(
+                    onTap: (){},
+                    borderRadius: BorderRadius.circular(50),
+                    child: Ink(
+                      width: 45,
+                      height: 45,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Theme.of(context).primaryColor.withOpacity(0.2)
+                      ),
+                      child: Icon(Icons.sort, color: Theme.of(context).iconTheme.color,),
+                    ),
+                  )
+                ],
               ),
               const SizedBox(
                 height: 12,
