@@ -1,7 +1,7 @@
 import 'package:budgetly/core/domain/models/account.dart';
 import 'package:budgetly/core/utils/hive_utils.dart';
 import 'package:budgetly/core/utils/math_utils.dart';
-import 'package:budgetly/features/feature_accounts/presentation/components/account_card.dart';
+import 'package:budgetly/core/presentation/components/account_card/account_card_1.dart';
 import 'package:budgetly/features/feature_accounts/presentation/components/accounts_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

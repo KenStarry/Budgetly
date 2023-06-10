@@ -1,6 +1,6 @@
 import 'package:budgetly/core/domain/models/account.dart';
 import 'package:budgetly/features/feature_accounts/domain/model/account_card_styles.dart';
-import 'package:budgetly/features/feature_accounts/presentation/components/account_card.dart';
+import 'package:budgetly/core/presentation/components/account_card/account_card_1.dart';
 import 'package:budgetly/features/feature_accounts/presentation/controller/accounts_controller.dart';
 import 'package:budgetly/features/feature_main/presentation/components/bottom_sheets/accounts_sheet/account_styles_list.dart';
 import 'package:budgetly/features/feature_main/presentation/components/bottom_sheets/accounts_sheet/account_text_field.dart';
@@ -59,13 +59,13 @@ void showAccountsBottomSheet(
                           () {
                             if (accountsController.accountCardStyle ==
                                 AccountCardStyles.style_1) {
-                              return AccountCard(
+                              return AccountCard1(
                                 accountName: controller.accountName.value,
                                 accountBalance: controller.accountBalance.value,
                                 currentDate: controller.currentDate.value,
                               );
                             }
-                            return AccountCard(
+                            return AccountCard1(
                               accountName: controller.accountName.value,
                               accountBalance: controller.accountBalance.value,
                               currentDate: controller.currentDate.value,

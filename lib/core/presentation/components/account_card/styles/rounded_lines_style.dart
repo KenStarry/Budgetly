@@ -3,8 +3,9 @@ import 'package:flutter/cupertino.dart';
 /// Rounded Lines
 class RoundedLinesStyle extends CustomPainter {
   final Color color;
+  final double strokeWidth;
 
-  const RoundedLinesStyle({required this.color});
+  const RoundedLinesStyle({required this.color, this.strokeWidth = 20.0});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -19,7 +20,7 @@ class RoundedLinesStyle extends CustomPainter {
 
     var paint = Paint()
       ..color = color
-      ..strokeWidth = 20.0
+      ..strokeWidth = strokeWidth
       ..strokeCap = StrokeCap.round;
 
     canvas.drawLine(point1, point2, paint);

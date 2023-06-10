@@ -7,7 +7,7 @@ import 'package:hive/hive.dart';
 
 import '../../../../core/domain/models/account.dart';
 import '../controller/accounts_controller.dart';
-import 'account_card.dart';
+import '../../../../core/presentation/components/account_card/account_card_1.dart';
 
 class AccountsList extends StatelessWidget {
   final AccountsController accountsController;
@@ -45,7 +45,7 @@ class AccountsList extends StatelessWidget {
                             borderRadius: BorderRadius.circular(16),
                           )
                         ]),
-                        child: AccountCard(
+                        child: AccountCard1(
                             accountName: account.accountName,
                             accountBalance: account.accountBalance,
                             currentDate: account.accountCreated.toString()),

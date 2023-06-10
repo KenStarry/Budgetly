@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 
 import '../../../../theme/my_colors.dart';
 
-class AccountCard extends StatelessWidget {
+class AccountCard2 extends StatelessWidget {
   final String accountName;
   final double accountBalance;
   final String currentDate;
   final bool isContentVisible;
 
-  const AccountCard(
+  const AccountCard2(
       {Key? key,
       required this.accountName,
       required this.accountBalance,
@@ -34,7 +34,8 @@ class AccountCard extends StatelessWidget {
               height: double.infinity,
               child: CustomPaint(
                 painter: CardStyles.roundedLinesStyle(
-                    color: Theme.of(context).primaryColor),
+                    color: Colors.orangeAccent,
+                strokeWidth: isContentVisible ? 20.0 : 5.0),
               ),
             ),
 
@@ -48,10 +49,8 @@ class AccountCard extends StatelessWidget {
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          MyColors.lightColors['accent_4']!.withOpacity(0.6),
-                          Theme.of(context)
-                              .scaffoldBackgroundColor
-                              .withOpacity(0.6)
+                          Colors.black.withOpacity(0.6),
+                          Colors.grey.withOpacity(0.6)
                         ]))),
 
             //  main content
