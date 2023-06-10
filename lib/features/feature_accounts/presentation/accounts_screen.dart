@@ -72,6 +72,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
         child: Column(
           children: [
             Flexible(
+              fit: FlexFit.loose,
                 child: AccountsList(accountsController: accountsController))
           ],
         ),
