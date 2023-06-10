@@ -68,7 +68,7 @@ class BalanceCard extends StatelessWidget {
                               style: Theme.of(context).textTheme.bodyMedium),
                           TextSpan(
                               text: MathUtils.addComma(number: accountsController.total.value),
-                              style: Theme.of(context).textTheme.titleMedium),
+                              style: Theme.of(context).textTheme.titleLarge),
                         ])),
                       )
                     ],

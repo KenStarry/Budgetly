@@ -22,6 +22,8 @@ dependencies:
   path_provider: ^2.0.15
   # slidable
   flutter_slidable: ^3.0.0
+  # lottie animations
+  lottie: ^2.3.2
 
 
 dev_dependencies:
