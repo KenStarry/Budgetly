@@ -2,6 +2,7 @@ import 'package:budgetly/features/feature_accounts/domain/model/account_card_sty
 import 'package:budgetly/features/feature_accounts/presentation/components/account_card.dart';
 import 'package:budgetly/features/feature_accounts/presentation/controller/accounts_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AccountStylesList extends StatelessWidget {
 
@@ -24,42 +25,46 @@ class AccountStylesList extends StatelessWidget {
           var currentStyle = AccountCardStyles.values[index];
 
           return GestureDetector(
-            onTap: () {},
+            onTap: () {
+              accountsController.changeAccountCardStyle(style: currentStyle);
+            },
             child: UnconstrainedBox(
               child: SizedBox(
                 width: 120,
                 height: 80,
-                child: Stack(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(16)),
-                      child: const AccountCard(
-                        accountName: '',
-                        accountBalance: 0.00,
-                        currentDate: '',
-                        isContentVisible: false,
-                      ),
-                    ),
-
-                    //  tick
-                    accountsController.accountCardStyle.value == currentStyle ? Align(
-                      alignment: AlignmentDirectional.topEnd,
-                      child: Container(
-                        width: 30,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
-                          borderRadius: BorderRadius.circular(50),
-                          border: Border.all(width: 4, color: Theme.of(context).scaffoldBackgroundColor)
+                child: Obx(
+                    () => Stack(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(16)),
+                        child: const AccountCard(
+                          accountName: '',
+                          accountBalance: 0.00,
+                          currentDate: '',
+                          isContentVisible: false,
                         ),
-                        child: Icon(Icons.done, color: Theme.of(context).textTheme.titleLarge?.color,
-                        size: 16,),
                       ),
-                    )
-                        : const SizedBox.shrink()
-                  ]
+
+                      //  tick
+                      accountsController.accountCardStyle.value == currentStyle ? Align(
+                        alignment: AlignmentDirectional.topEnd,
+                        child: Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).primaryColor,
+                            borderRadius: BorderRadius.circular(50),
+                            border: Border.all(width: 4, color: Theme.of(context).scaffoldBackgroundColor)
+                          ),
+                          child: Icon(Icons.done, color: Theme.of(context).textTheme.titleLarge?.color,
+                          size: 16,),
+                        ),
+                      )
+                          : const SizedBox.shrink()
+                    ]
+                  ),
                 ),
               ),
             ),
