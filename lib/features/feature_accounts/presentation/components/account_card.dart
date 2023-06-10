@@ -9,12 +9,14 @@ class AccountCard extends StatelessWidget {
   final String accountName;
   final double accountBalance;
   final String currentDate;
+  final bool isContentVisible;
 
   const AccountCard(
       {Key? key,
       required this.accountName,
       required this.accountBalance,
-      required this.currentDate})
+      required this.currentDate,
+      this.isContentVisible = true})
       : super(key: key);
 
   @override
@@ -53,32 +55,34 @@ class AccountCard extends StatelessWidget {
                         ]))),
 
             //  main content
-            Container(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Balance",
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Text.rich(TextSpan(children: [
-                      TextSpan(
-                          text: "Ksh. ",
-                          style: Theme.of(context).textTheme.bodyLarge),
-                      TextSpan(
-                          text: MathUtils.addComma(number: accountBalance),
-                          style: Theme.of(context).textTheme.titleMedium),
-                    ]))
-                  ],
-                )),
+            isContentVisible == true
+                ? Container(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Balance",
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text.rich(TextSpan(children: [
+                          TextSpan(
+                              text: "Ksh. ",
+                              style: Theme.of(context).textTheme.bodyLarge),
+                          TextSpan(
+                              text: MathUtils.addComma(number: accountBalance),
+                              style: Theme.of(context).textTheme.titleMedium),
+                        ]))
+                      ],
+                    ))
+                : SizedBox.shrink(),
 
             //  account name
-            Align(
+            isContentVisible == true ? Align(
               alignment: AlignmentDirectional.topStart,
               child: Padding(
                 padding: const EdgeInsets.all(16),
@@ -101,7 +105,7 @@ class AccountCard extends StatelessWidget {
                   ],
                 ),
               ),
-            )
+            ) : SizedBox.shrink(),
           ],
         ));
   }

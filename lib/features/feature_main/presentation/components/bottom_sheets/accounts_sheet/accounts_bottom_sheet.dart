@@ -2,6 +2,7 @@ import 'package:budgetly/core/domain/models/account.dart';
 import 'package:budgetly/features/feature_accounts/domain/model/account_card_styles.dart';
 import 'package:budgetly/features/feature_accounts/presentation/components/account_card.dart';
 import 'package:budgetly/features/feature_accounts/presentation/controller/accounts_controller.dart';
+import 'package:budgetly/features/feature_main/presentation/components/bottom_sheets/accounts_sheet/account_styles_list.dart';
 import 'package:budgetly/features/feature_main/presentation/components/bottom_sheets/accounts_sheet/account_text_field.dart';
 import 'package:budgetly/features/feature_main/presentation/controller/main_form_controller.dart';
 import 'package:budgetly/theme/my_colors.dart';
@@ -56,7 +57,6 @@ void showAccountsBottomSheet(
                         //  account card to be customized
                         Obx(
                           () {
-                            print(AccountCardStyles.values.length);
                             if (accountsController.accountCardStyle ==
                                 AccountCardStyles.style_1) {
                               return AccountCard(
@@ -71,6 +71,28 @@ void showAccountsBottomSheet(
                               currentDate: controller.currentDate.value,
                             );
                           },
+                        ),
+
+                        const SizedBox(
+                          height: 16,
+                        ),
+
+                        //  styles heading
+                        Align(
+                          alignment: AlignmentDirectional.center,
+                          child: Text(
+                            "Card Styles",
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                        ),
+
+                        const SizedBox(
+                          height: 16,
+                        ),
+
+                        //  card styles list
+                        AccountStylesList(
+                          accountsController: accountsController,
                         ),
 
                         const SizedBox(

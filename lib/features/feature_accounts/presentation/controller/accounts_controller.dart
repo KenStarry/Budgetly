@@ -20,7 +20,7 @@ class AccountsController extends GetxController {
   var total = 0.00.obs;
 
   //  selected account card style
-  var accountCardStyle = AccountCardStyles.style_1.obs;
+  var accountCardStyle = AccountCardStyles.style_2.obs;
 
   //  add account
   Future<void> addAccount({required Account account}) async {
