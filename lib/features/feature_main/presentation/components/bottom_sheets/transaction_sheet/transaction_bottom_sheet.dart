@@ -20,7 +20,7 @@ void showTransactionBottomSheet(
                            padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(32),
-                              color: Colors.grey
+                              color: Theme.of(context).primaryColorLight
                             ),
                             child: Row(
                               children: [

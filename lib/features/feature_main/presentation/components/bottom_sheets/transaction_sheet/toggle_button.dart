@@ -8,9 +8,9 @@ class TransactionToggleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: onTap(),
-      child: Ink(
+      child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(32), color: Colors.white),

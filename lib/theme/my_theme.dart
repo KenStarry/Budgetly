@@ -6,6 +6,7 @@ class MyTheme {
   /// Light Theme color implementations
   static ThemeData lightTheme = ThemeData(
       primaryColor: MyColors.lightColors['accent_4'],
+      primaryColorLight: MyColors.lightColors['scaffold_bg_alt'],
       scaffoldBackgroundColor: MyColors.lightColors['scaffold_bg'],
       iconTheme: IconThemeData(color: MyColors.lightColors['icon_color']),
       fontFamily: 'Poppins',
@@ -46,9 +47,10 @@ class MyTheme {
 
   /// Dark Theme color implementations
   static ThemeData darkTheme = ThemeData(
-      primaryColor: MyColors.lightColors['accent_4'],
+      primaryColor: MyColors.darkColors['accent_4'],
+      primaryColorLight: MyColors.darkColors['scaffold_bg_alt'],
       scaffoldBackgroundColor: MyColors.darkColors['scaffold_bg'],
-      iconTheme: IconThemeData(color: MyColors.lightColors['icon_color']),
+      iconTheme: IconThemeData(color: MyColors.darkColors['icon_color']),
       fontFamily: 'Poppins',
       textTheme: TextTheme(
         titleLarge: TextStyle(
