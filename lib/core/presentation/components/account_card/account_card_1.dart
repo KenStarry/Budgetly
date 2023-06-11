@@ -49,7 +49,7 @@ class AccountCard1 extends StatelessWidget {
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          MyColors.lightColors['accent_4']!.withOpacity(0.6),
+                          Theme.of(context).primaryColor.withOpacity(0.6),
                           Theme.of(context)
                               .scaffoldBackgroundColor
                               .withOpacity(0.6)

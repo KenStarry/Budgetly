@@ -6,12 +6,14 @@ import '../../../../../../theme/my_colors.dart';
 class AccountTextField extends StatelessWidget {
   final String hintText;
   final IconData icon;
+  final bool isNumber;
   final Function(String text) onChanged;
 
   const AccountTextField(
       {Key? key,
       required this.hintText,
       required this.icon,
+      this.isNumber = false,
       required this.onChanged})
       : super(key: key);
 
@@ -23,11 +25,11 @@ class AccountTextField extends StatelessWidget {
           width: 50,
           height: 50,
           decoration: BoxDecoration(
-              color: MyColors.lightColors['accent_4']?.withOpacity(0.2),
+              color: Theme.of(context).primaryColor.withOpacity(0.2),
               borderRadius: BorderRadius.circular(50)),
           child: Icon(
             icon,
-            color: MyColors.lightColors['accent_4'],
+            color: Theme.of(context).primaryColor,
           ),
         ),
         const SizedBox(
@@ -44,6 +46,7 @@ class AccountTextField extends StatelessWidget {
                 border: InputBorder.none),
             cursorColor: Theme.of(context).primaryColor,
             style: Theme.of(context).textTheme.bodyMedium,
+            keyboardType: isNumber ? TextInputType.number : TextInputType.text,
           ),
         ),
       ],

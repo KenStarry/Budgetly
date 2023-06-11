@@ -34,7 +34,7 @@ class AccountCard2 extends StatelessWidget {
               height: double.infinity,
               child: CustomPaint(
                 painter: CardStyles.roundedLinesStyle(
-                    color: Colors.orangeAccent,
+                    color: Theme.of(context).primaryColor,
                 strokeWidth: isContentVisible ? 20.0 : 5.0),
               ),
             ),
@@ -46,11 +46,13 @@ class AccountCard2 extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     gradient: LinearGradient(
+                      tileMode: TileMode.clamp,
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          Colors.black.withOpacity(0.6),
-                          Colors.grey.withOpacity(0.6)
+                          Theme.of(context).primaryColor.withOpacity(0.6),
+                          Theme.of(context).scaffoldBackgroundColor.withOpacity(0.6),
+                          Theme.of(context).primaryColor.withOpacity(0.6),
                         ]))),
 
             //  main content

@@ -40,6 +40,7 @@ class _MainScreenState extends State<MainScreen> {
         () => Expanded(
             flex: 1,
             child: bottomAppBarIcon(
+              context: context,
                 title: "Home",
                 icon: Icons.home,
                 isActive: _controller.currentTabIndex.value == 0,
@@ -49,6 +50,7 @@ class _MainScreenState extends State<MainScreen> {
         () => Expanded(
           flex: 1,
           child: bottomAppBarIcon(
+            context: context,
               title: "Accounts",
               icon: Icons.credit_card,
               isActive: _controller.currentTabIndex.value == 1,
@@ -69,6 +71,7 @@ class _MainScreenState extends State<MainScreen> {
         () => Expanded(
           flex: 1,
           child: bottomAppBarIcon(
+            context: context,
               title: "Categories",
               icon: Icons.fastfood_outlined,
               isActive: _controller.currentTabIndex.value == 2,
@@ -79,6 +82,7 @@ class _MainScreenState extends State<MainScreen> {
         () => Expanded(
           flex: 1,
           child: bottomAppBarIcon(
+            context: context,
               title: "Settings",
               icon: Icons.settings,
               isActive: _controller.currentTabIndex.value == 3,
@@ -127,7 +131,7 @@ class _MainScreenState extends State<MainScreen> {
                     showHomeBottomSheet(context);
                   }
                 },
-                backgroundColor: MyColors.lightColors['accent_4'],
+                backgroundColor: Theme.of(context).primaryColor,
                 child: _controller.fabIcon.value,
               );
             },

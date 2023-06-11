@@ -47,7 +47,7 @@ PreferredSizeWidget mainAppBar(
                           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(18),
-                            color: MyColors.lightColors['accent_5'],
+                            color: Theme.of(context).primaryColor.withOpacity(0.2),
                           ),
                           child: Text(
                             "June",

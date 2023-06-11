@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 Widget bottomAppBarIcon(
-        {required String title,
+        {
+          required BuildContext context,
+          required String title,
         required IconData icon,
         required bool isActive,
         required VoidCallback onTap}) =>
@@ -16,7 +18,7 @@ Widget bottomAppBarIcon(
           children: [
             Icon(
               icon,
-              color: isActive ? MyColors.lightColors['accent_4'] : Theme.of(Get.context!).iconTheme.color,
+              color: isActive ? Theme.of(context).primaryColor : Theme.of(Get.context!).iconTheme.color,
             ),
             const SizedBox(height: 8),
             Text(

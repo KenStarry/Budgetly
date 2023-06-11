@@ -21,16 +21,6 @@ class BalanceCard extends StatelessWidget {
           child: Stack(
             fit: StackFit.loose,
             children: [
-              //  background image
-              ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  "assets/images/card_pattern1.png",
-                  width: double.infinity,
-                  height: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-              ),
 
               Container(
                   width: double.infinity,
@@ -38,10 +28,10 @@ class BalanceCard extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
+                          begin: Alignment.bottomLeft,
+                          end: Alignment.topRight,
                           colors: [
-                            MyColors.lightColors['accent_4']!.withOpacity(0.6),
+                            Theme.of(context).primaryColor.withOpacity(0.6),
                             Theme.of(context)
                                 .scaffoldBackgroundColor
                                 .withOpacity(0.6)

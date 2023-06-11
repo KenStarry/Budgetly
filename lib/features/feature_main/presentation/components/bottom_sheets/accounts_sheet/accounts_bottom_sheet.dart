@@ -57,19 +57,32 @@ void showAccountsBottomSheet(
                         //  account card to be customized
                         Obx(
                           () {
-                            if (accountsController.accountCardStyle ==
-                                AccountCardStyles.style_1) {
-                              return AccountCard1(
-                                accountName: controller.accountName.value,
-                                accountBalance: controller.accountBalance.value,
-                                currentDate: controller.currentDate.value,
-                              );
+                            switch (accountsController.accountCardStyle.value) {
+                              case AccountCardStyles.style_1:
+                                return accountCardVariants(
+                                    accName: controller.accountName.value,
+                                    accBal: controller.accountBalance.value,
+                                    accDate: controller.currentDate.value,
+                                    isContentVisible: true)[0];
+                              case AccountCardStyles.style_2:
+                                return accountCardVariants(
+                                    accName: controller.accountName.value,
+                                    accBal: controller.accountBalance.value,
+                                    accDate: controller.currentDate.value,
+                                    isContentVisible: true)[1];
+                              case AccountCardStyles.style_3:
+                                return accountCardVariants(
+                                    accName: controller.accountName.value,
+                                    accBal: controller.accountBalance.value,
+                                    accDate: controller.currentDate.value,
+                                    isContentVisible: true)[2];
+                              case AccountCardStyles.style_4:
+                                return accountCardVariants(
+                                    accName: controller.accountName.value,
+                                    accBal: controller.accountBalance.value,
+                                    accDate: controller.currentDate.value,
+                                    isContentVisible: true)[3];
                             }
-                            return AccountCard1(
-                              accountName: controller.accountName.value,
-                              accountBalance: controller.accountBalance.value,
-                              currentDate: controller.currentDate.value,
-                            );
                           },
                         ),
 
@@ -129,6 +142,7 @@ void showAccountsBottomSheet(
                         AccountTextField(
                             hintText: "Ksh. 0.00",
                             icon: Icons.monetization_on,
+                            isNumber: true,
                             onChanged: (text) {
                               controller.updateAccountBalance(balance: text);
                             }),
@@ -154,7 +168,7 @@ void showAccountsBottomSheet(
                             },
                             style: FilledButton.styleFrom(
                                 backgroundColor:
-                                    MyColors.lightColors['accent_3']),
+                                Theme.of(context).primaryColor),
                             child: Text("save"),
                           ),
                         )
