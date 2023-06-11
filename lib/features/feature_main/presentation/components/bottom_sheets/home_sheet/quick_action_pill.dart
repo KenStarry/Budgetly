@@ -18,7 +18,7 @@ class QuickActionPill extends StatelessWidget {
     return Column(
       children: [
         InkWell(
-          onTap: () => onTap,
+          onTap: () => onTap(),
           borderRadius: BorderRadius.circular(50),
           child: Ink(
             width: 50,

@@ -2,6 +2,8 @@ import 'package:budgetly/features/feature_main/presentation/components/bottom_sh
 import 'package:budgetly/theme/my_colors.dart';
 import 'package:flutter/material.dart';
 
+import '../transaction_sheet/transaction_bottom_sheet.dart';
+
 void showHomeBottomSheet(BuildContext context) => showModalBottomSheet(
         context: context,
         builder: (context) => Padding(
@@ -26,7 +28,11 @@ void showHomeBottomSheet(BuildContext context) => showModalBottomSheet(
                             pillTitle: "Income",
                             pillIcon: Icons.show_chart_outlined,
                             pillColor: MyColors.lightColors['success']!,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pop(context);
+                              showTransactionBottomSheet(
+                                context: context, transactionType: 'income');
+                            },
                           ),
 
                           // const SizedBox(width: 24,),
@@ -35,7 +41,11 @@ void showHomeBottomSheet(BuildContext context) => showModalBottomSheet(
                             pillTitle: "Transfer",
                             pillIcon: Icons.account_balance_wallet,
                             pillColor: MyColors.lightColors['accent_3']!,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pop(context);
+                              showTransactionBottomSheet(
+                                context: context, transactionType: 'transfer');
+                            },
                           ),
 
                           // const SizedBox(width: 24,),
@@ -44,7 +54,11 @@ void showHomeBottomSheet(BuildContext context) => showModalBottomSheet(
                             pillTitle: "Expense",
                             pillIcon: Icons.show_chart_outlined,
                             pillColor: MyColors.lightColors['error']!,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pop(context);
+                              showTransactionBottomSheet(
+                                context: context, transactionType: 'expense');
+                            },
                           ),
                         ],
                       ),
