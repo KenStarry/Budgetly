@@ -23,23 +23,29 @@ void showHomeBottomSheet(BuildContext context) => showModalBottomSheet(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           QuickActionPill(
-                              pillTitle: "Income",
-                              pillIcon: Icons.show_chart_outlined,
-                              pillColor: MyColors.lightColors['success']!),
+                            pillTitle: "Income",
+                            pillIcon: Icons.show_chart_outlined,
+                            pillColor: MyColors.lightColors['success']!,
+                            onTap: () {},
+                          ),
 
                           // const SizedBox(width: 24,),
 
                           QuickActionPill(
-                              pillTitle: "Transfer",
-                              pillIcon: Icons.account_balance_wallet,
-                              pillColor: MyColors.lightColors['accent_3']!),
+                            pillTitle: "Transfer",
+                            pillIcon: Icons.account_balance_wallet,
+                            pillColor: MyColors.lightColors['accent_3']!,
+                            onTap: () {},
+                          ),
 
                           // const SizedBox(width: 24,),
 
                           QuickActionPill(
-                              pillTitle: "Expense",
-                              pillIcon: Icons.show_chart_outlined,
-                              pillColor: MyColors.lightColors['error']!),
+                            pillTitle: "Expense",
+                            pillIcon: Icons.show_chart_outlined,
+                            pillColor: MyColors.lightColors['error']!,
+                            onTap: () {},
+                          ),
                         ],
                       )
                     ],
