@@ -26,7 +26,7 @@ void showAccountsBottomSheet(
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     decoration: BoxDecoration(
                         color: Theme.of(context).scaffoldBackgroundColor,
                         borderRadius: const BorderRadius.only(
@@ -35,16 +35,6 @@ void showAccountsBottomSheet(
                         )),
                     child: Column(
                       children: [
-                        //  bottom sheet drag icon
-                        Container(
-                          width: 50,
-                          height: 4,
-                          margin: const EdgeInsets.symmetric(vertical: 8),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              color: Colors.grey.shade600),
-                        ),
-
                         Text(
                           "Add Account",
                           style: Theme.of(context).textTheme.titleSmall,
@@ -181,7 +171,8 @@ void showAccountsBottomSheet(
           ),
       isScrollControlled: true,
       useSafeArea: true,
-      backgroundColor: Colors.transparent,
+      showDragHandle: true,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
         topLeft: Radius.circular(16),
