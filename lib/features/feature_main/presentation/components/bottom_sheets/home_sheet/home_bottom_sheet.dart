@@ -47,7 +47,11 @@ void showHomeBottomSheet(BuildContext context) => showModalBottomSheet(
                             onTap: () {},
                           ),
                         ],
-                      )
+                      ),
+
+                      const SizedBox(
+                        height: 16,
+                      ),
                     ],
                   )
                 ],

@@ -24,7 +24,7 @@ class QuickActionPill extends StatelessWidget {
             width: 50,
             height: 50,
             decoration: BoxDecoration(
-              color: pillColor.withOpacity(0.1),
+              color: pillColor.withOpacity(0.05),
               borderRadius: BorderRadius.circular(50)
             ),
             child: Icon(pillIcon, size: 24, color: pillColor,),
