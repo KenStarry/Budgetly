@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
     ControllersDI.invoke();
 
     return GetMaterialApp(
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.system,
       theme: MyTheme.lightTheme,
       darkTheme: MyTheme.darkTheme,
       debugShowCheckedModeBanner: false,

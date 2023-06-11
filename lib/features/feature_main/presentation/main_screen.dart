@@ -107,12 +107,12 @@ class _MainScreenState extends State<MainScreen> {
         value: SystemUiOverlayStyle(
             systemNavigationBarColor: Theme.of(context).scaffoldBackgroundColor,
             systemNavigationBarIconBrightness:
-                _controller.isDarkMode() ? Brightness.light : Brightness.dark),
+            _controller.isDarkMode.value ? Brightness.light : Brightness.dark),
         child: Scaffold(
           floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
+          FloatingActionButtonLocation.centerDocked,
           floatingActionButton: Obx(
-            () {
+                () {
               if (_controller.currentTabIndex.value == 3) {
                 //  return nothing
                 return const SizedBox.shrink();
@@ -137,7 +137,7 @@ class _MainScreenState extends State<MainScreen> {
             },
           ),
           body: Obx(
-            () => IndexedStack(
+                () => IndexedStack(
               index: _controller.currentTabIndex.value,
               children: _pages,
             ),

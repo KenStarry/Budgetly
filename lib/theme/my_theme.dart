@@ -20,7 +20,7 @@ class MyTheme {
             fontSize: 24,
             fontWeight: FontWeight.bold,
             fontFamily: 'Poppins',
-            color: MyColors.lightColors['text_black_87']),
+            color: MyColors.lightColors['text_black']),
         titleSmall: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w700,
@@ -62,7 +62,7 @@ class MyTheme {
             fontSize: 24,
             fontWeight: FontWeight.bold,
             fontFamily: 'Poppins',
-            color: MyColors.darkColors['text_white_70']),
+            color: MyColors.darkColors['text_white']),
         titleSmall: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w700,

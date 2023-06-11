@@ -1,3 +1,4 @@
+import 'package:budgetly/core/presentation/utils/get_contrast_color.dart';
 import 'package:budgetly/core/utils/math_utils.dart';
 import 'package:budgetly/features/feature_accounts/presentation/components/income_card.dart';
 import 'package:budgetly/theme/card_styles.dart';
@@ -28,16 +29,6 @@ class AccountCard1 extends StatelessWidget {
         child: Stack(
           fit: StackFit.loose,
           children: [
-            //  canvas
-            SizedBox(
-              width: double.infinity,
-              height: double.infinity,
-              child: CustomPaint(
-                painter: CardStyles.roundedLinesStyle(
-                    color: Theme.of(context).primaryColor,
-                strokeWidth: isContentVisible ? 20.0 : 5.0),
-              ),
-            ),
 
             //  gradient color
             Container(
@@ -45,15 +36,18 @@ class AccountCard1 extends StatelessWidget {
                 height: double.infinity,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Theme.of(context).primaryColor.withOpacity(0.6),
-                          Theme.of(context)
-                              .scaffoldBackgroundColor
-                              .withOpacity(0.6)
-                        ]))),
+                    color: Theme.of(context).primaryColor)),
+
+            //  canvas
+            SizedBox(
+              width: double.infinity,
+              height: double.infinity,
+              child: CustomPaint(
+                painter: CardStyles.roundedLinesStyle(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    strokeWidth: isContentVisible ? 20.0 : 5.0),
+              ),
+            ),
 
             //  main content
             isContentVisible == true
@@ -65,7 +59,11 @@ class AccountCard1 extends StatelessWidget {
                       children: [
                         Text(
                           "Balance",
-                          style: Theme.of(context).textTheme.bodySmall,
+                          style: TextStyle(
+                            fontSize: Theme.of(context).textTheme.bodySmall!.fontSize,
+                            fontWeight: Theme.of(context).textTheme.bodySmall!.fontWeight,
+                            color: getTextColorForBackground(backgroundColor: Theme.of(context).primaryColor)
+                          ),
                         ),
                         const SizedBox(
                           height: 8,
@@ -73,10 +71,18 @@ class AccountCard1 extends StatelessWidget {
                         Text.rich(TextSpan(children: [
                           TextSpan(
                               text: "Ksh. ",
-                              style: Theme.of(context).textTheme.bodyLarge),
+                              style: TextStyle(
+                                  fontSize: Theme.of(context).textTheme.bodyLarge!.fontSize,
+                                  fontWeight: Theme.of(context).textTheme.bodyLarge!.fontWeight,
+                                  color: getTextColorForBackground(backgroundColor: Theme.of(context).primaryColor)
+                              )),
                           TextSpan(
                               text: MathUtils.addComma(number: accountBalance),
-                              style: Theme.of(context).textTheme.titleMedium),
+                              style: TextStyle(
+                                  fontSize: Theme.of(context).textTheme.titleMedium!.fontSize,
+                                  fontWeight: Theme.of(context).textTheme.titleMedium!.fontWeight,
+                                  color: getTextColorForBackground(backgroundColor: Theme.of(context).primaryColor)
+                              )),
                         ]))
                       ],
                     ))
@@ -100,7 +106,11 @@ class AccountCard1 extends StatelessWidget {
                           width: 8,
                         ),
                         Text(accountName,
-                            style: Theme.of(context).textTheme.bodyMedium)
+                            style: TextStyle(
+                                fontSize: Theme.of(context).textTheme.bodyMedium!.fontSize,
+                                fontWeight: Theme.of(context).textTheme.bodyMedium!.fontWeight,
+                                color: getTextColorForBackground(backgroundColor: Theme.of(context).primaryColor)
+                            ))
                       ],
                     ),
                   ],

@@ -8,6 +8,7 @@ Widget mainBottomAppBar({required List<Widget> tabs}) => BottomAppBar(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       shape: const CircularNotchedRectangle(),
       notchMargin: 4,
+      color: Theme.of(Get.context!).scaffoldBackgroundColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
